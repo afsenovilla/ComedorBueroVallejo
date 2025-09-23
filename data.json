@@ -1,0 +1,79 @@
+{
+  "2025-09-01": {"almuerzo": ["VACACIONES DE VERANO"], "sugerencia_cena": ""},
+  "2025-09-02": {"almuerzo": ["VACACIONES DE VERANO"], "sugerencia_cena": ""},
+  "2025-09-03": {"almuerzo": ["VACACIONES DE VERANO"], "sugerencia_cena": ""},
+  "2025-09-04": {"almuerzo": ["VACACIONES DE VERANO"], "sugerencia_cena": ""},
+  "2025-09-05": {"almuerzo": ["VACACIONES DE VERANO"], "sugerencia_cena": ""},
+
+  "2025-09-08": {
+    "almuerzo": ["Arroz con tomate", "Hamburguesa de ternera a la plancha", "Ensalada de lechuga y maíz", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-09-09": {
+    "almuerzo": ["Crema de acelgas", "Ventresca de merluza al horno", "Patatas panadera", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Legumbre y pavo"
+  },
+  "2025-09-10": {
+    "almuerzo": ["Lentejas ECO lionesas", "Tortilla francesa", "Ensalada de lechuga y zanahoria", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-09-11": {
+    "almuerzo": ["Menestra rehogada", "Contramuslo de pollo a la plancha", "Patatas dado", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Patata y huevo"
+  },
+  "2025-09-12": {
+    "almuerzo": ["Macarrones integrales a la napolitana", "Salmón a las finas hierbas", "Ensalada mixta", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+
+  "2025-09-15": {
+    "almuerzo": ["Paella valenciana", "Abadejo a la meuniere", "Ensalada de lechuga y cebolla", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y huevo"
+  },
+  "2025-09-16": {
+    "almuerzo": ["Crema de puerros", "Escalopines de cerdo en salsa", "Patatas al horno", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Patata y pescado"
+  },
+  "2025-09-17": {
+    "almuerzo": ["Garbanzos ECO salteados", "Tortilla francesa de calabacín", "Ensalada de lechuga y remolacha", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y pollo"
+  },
+  "2025-09-18": {
+    "almuerzo": ["Coditos en salsa Alfredo", "Palometa en salsa verde", "Ensalada de lechuga y maíz", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y ternera"
+  },
+  "2025-09-19": {
+    "almuerzo": ["Guisantes con cebolla", "Jamoncitos de pollo asados", "Ensalada mixta", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+
+  "2025-09-22": {
+    "almuerzo": ["Judías verdes a la portuguesa", "Albóndigas en salsa", "Patatas fritas", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-09-23": {
+    "almuerzo": ["Arroz al horno", "Tortilla francesa con salsa de tomate", "Ensalada de lechuga y remolacha", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pollo"
+  },
+  "2025-09-24": {
+    "almuerzo": ["Crema de calabacín", "Lentejas con calabaza", "Ensalada de lechuga y maíz", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-09-25": {
+    "almuerzo": ["Espirales con verduras", "Bonito encebollado", "Ensalada verde", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-09-26": {
+    "almuerzo": ["Judías pintas ECO estofadas", "Pollo al chilindrón", "Ensalada de lechuga y zanahoria", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y huevo"
+  },
+
+  "2025-09-29": {
+    "almuerzo": ["Arroz integral a la milanesa", "Merluza al limón", "Ensalada de lechuga y tomate", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-09-30": {
+    "almuerzo": ["Judías blancas estofadas", "Huevos revueltos con atún", "Ensalada mixta", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  }
+}

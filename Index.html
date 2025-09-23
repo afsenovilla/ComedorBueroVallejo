@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menú escolar · Septiembre 2025</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        /* Paleta clara */
+        --ink: #1a1f2c;
+        --ink-strong: #0f172a;
+        --muted: #6a738b;
+
+        --bg1: #f6f7ff;
+        --bg2: #fff4f7;
+        --bg3: #eefcf8;
+        --surface: #fafbff;
+        --card: #ffffff;
+        --stroke: #e6e8ef;
+
+        --brand: #6c8cff;
+        --brand-dark: #4d6bff;
+        --accent: #ffcc6a;
+        --pink: #ff9ac2;
+        --mint: #7ed7c9;
+
+        --radius: 16px;
+        --gap: 14px;
+        --shadow: 0 8px 28px rgba(27, 37, 89, 0.1);
+      }
+
+      /* Modo oscuro: SOLO variables */
+      body.dark {
+        --ink: #f3f4f6;
+        --ink-strong: #ffffff;
+        --muted: #b3b9c6;
+
+        --bg1: #0f172a;
+        --bg2: #111827;
+        --bg3: #0b1220;
+        --surface: #0b1220;
+        --card: #1f2430;
+        --stroke: #2c3140;
+
+        --brand: #7ea0ff;
+        --brand-dark: #5e82ff;
+        --shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: 'Nunito', system-ui, sans-serif;
+        background: radial-gradient(28rem 28rem at -12% -10%, var(--bg1) 0%, transparent 60%), radial-gradient(26rem 26rem at 112% -8%, var(--bg2) 0%, transparent 55%), radial-gradient(26rem 26rem at -10% 115%, var(--bg3) 0%, transparent 60%), var(--surface);
+        transition: background 0.3s, color 0.3s;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 14px;
+        background: linear-gradient(135deg, var(--bg1) 0%, var(--card) 60%);
+        border-bottom: 1px solid var(--stroke);
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font: 600 22px 'Fredoka', sans-serif;
+        color: var(--ink-strong);
+      }
+      .bubble {
+        display: inline-grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, var(--brand), var(--brand-dark));
+        color: #fff;
+        font-size: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        gap: 8px;
+      }
+      .toolbar-left {
+        flex: 1;
+        display: flex;
+        gap: 8px;
+      }
+      .toolbar-right {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        border: 1px solid var(--stroke);
+        background: var(--card);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font: 700 14px 'Nunito', sans-serif;
+        color: var(--ink);
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .btn.primary {
+        background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+        color: #fff;
+        border-color: transparent;
+      }
+      .icon-btn {
+        background: none;
+        border: 1px solid transparent;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--muted);
+        padding: 6px;
+        border-radius: 8px;
+      }
+      .icon-btn:hover {
+        color: var(--brand-dark);
+        background: rgba(0, 0, 0, 0.04);
+      }
+      body.dark .icon-btn:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      main {
+        max-width: 940px;
+        margin: 14px auto;
+        padding: 0 14px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 14px;
+        overflow: hidden;
+      }
+      .bar {
+        height: 6px;
+        background: linear-gradient(90deg, var(--brand), var(--accent), var(--mint), var(--pink));
+      }
+      .content {
+        padding: 16px;
+      }
+
+      .day-label {
+        font: 600 18px 'Fredoka', sans-serif;
+        color: var(--ink-strong);
+        margin-bottom: 8px;
+      }
+      h2 {
+        font: 600 16px 'Fredoka', sans-serif;
+        color: var(--ink-strong);
+        margin: 10px 0 6px;
+      }
+      .list {
+        margin: 0;
+        padding-left: 20px;
+        line-height: 1.5;
+      }
+      .empty {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .week {
+        display: grid;
+        gap: 10px;
+      }
+      @media (min-width: 560px) {
+        .week {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 900px) {
+        .week {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .day-card {
+        border: 1px solid var(--stroke);
+        border-radius: 14px;
+        padding: 12px;
+        background: var(--card);
+        cursor: pointer;
+        transition: 0.2s;
+        text-align: left;
+        color: var(--ink);
+      }
+      .day-card:hover {
+        box-shadow: var(--shadow);
+      }
+      .day-card.selected {
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.22), var(--shadow);
+      }
+      .day-card .top {
+        font: 700 14px 'Fredoka', sans-serif;
+        margin-bottom: 6px;
+        color: var(--ink-strong);
+      }
+      .peek {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.4;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .peek li {
+        margin: 2px 0;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font: 700 12px 'Nunito', sans-serif;
+        padding: 22px 0;
+      }
+
+      @media print {
+        header {
+          position: static;
+          border: none;
+          background: #fff;
+        }
+        body.dark {
+          background: #fff;
+        }
+        .icon-btn,
+        .btn {
+          display: none;
+        }
+        .card {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">
+        <span class="bubble">🍽️</span>
+        Menú escolar · Septiembre 2025
+      </h1>
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <button id="prevWeek" class="btn">⟵ Semana anterior</button>
+          <button id="todayBtn" class="btn">Hoy</button>
+          <button id="nextWeek" class="btn">Semana siguiente ⟶</button>
+        </div>
+        <div class="toolbar-right">
+          <button id="darkModeBtn" class="icon-btn" title="Modo noche">🌙</button>
+          <button id="printBtn" class="icon-btn" title="Imprimir">🖨️</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="bar"></div>
+        <div class="content">
+          <div class="day-label" id="selectedDateLabel">—</div>
+          <div class="grid">
+            <div>
+              <h2>Comida</h2>
+              <div id="lunch"></div>
+            </div>
+            <div>
+              <h2>Sugerencia de cena</h2>
+              <div id="dinner"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="bar"></div>
+        <div class="content">
+          <h2>Semana a la vista</h2>
+          <div id="weekPreview" class="week" role="list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Hecho con cariño · funciona offline · sin cookies</footer>
+
+    <script>
+      const fmtLong = (d) => d.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      const fmtShort = (d) => d.toLocaleDateString('es-ES', { weekday: 'short', day: '2-digit', month: '2-digit' });
+      const toKey = (d) => d.toISOString().slice(0, 10);
+
+      const state = { current: null, DATA: {}, todayKey: null };
+
+      async function load() {
+        const res = await fetch('data.json', { cache: 'no-store' });
+        state.DATA = await res.json();
+        initTheme();
+        initToday();
+        bindNav();
+      }
+
+      // Normaliza "hoy" a mediodía UTC para comparar con state.current
+      function getTodayNormalized() {
+        const now = new Date();
+        return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0));
+      }
+
+      function initToday() {
+        let d = new Date();
+        // Si es sábado -> +2; domingo -> +1 (mostrar lunes siguiente como contenido inicial)
+        if (d.getDay() === 6) {
+          d.setDate(d.getDate() + 2);
+        }
+        if (d.getDay() === 0) {
+          d.setDate(d.getDate() + 1);
+        }
+        // Guarda la clave de "hoy" real para el resaltado del botón
+        state.todayKey = toKey(getTodayNormalized());
+        setDate(d);
+      }
+
+      function setDate(d) {
+        const nd = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 12, 0, 0));
+        state.current = nd;
+        render();
+      }
+
+      function render() {
+        const key = toKey(state.current);
+        const entry = state.DATA[key];
+
+        document.getElementById('selectedDateLabel').textContent = fmtLong(state.current);
+
+        const lunch = document.getElementById('lunch');
+        const dinner = document.getElementById('dinner');
+        const asList = (arr) => "<ul class='list'>" + arr.map((i) => `<li>${i}</li>`).join('') + '</ul>';
+        const empty = (n) => `<div class="empty">Sin datos de ${n}.</div>`;
+        lunch.innerHTML = entry?.almuerzo?.length ? asList(entry.almuerzo) : empty('comida');
+        dinner.innerHTML = entry?.sugerencia_cena ? `<p>${entry.sugerencia_cena}</p>` : empty('sugerencia');
+
+        renderWeekPreview(state.current);
+        updateTodayButtonHighlight();
+      }
+
+      function renderWeekPreview(date) {
+        const wrap = document.getElementById('weekPreview');
+        wrap.innerHTML = '';
+        const start = new Date(date);
+        const day = (start.getDay() + 6) % 7;
+        start.setDate(start.getDate() - day); // mover al lunes
+
+        for (let i = 0; i < 5; i++) {
+          const d = new Date(start);
+          d.setDate(start.getDate() + i);
+          const key = toKey(d);
+          const e = state.DATA[key] || {};
+          const card = document.createElement('button');
+          card.className = 'day-card';
+          if (key === toKey(state.current)) card.classList.add('selected');
+          const list = e.almuerzo?.length ? "<ul class='peek'>" + e.almuerzo.map((x) => `<li>${x}</li>`).join('') + '</ul>' : "<div class='empty'>Sin datos</div>";
+          card.innerHTML = `<div class="top">${fmtShort(d)}</div>${list}`;
+          card.addEventListener('click', () => setDate(d));
+          wrap.appendChild(card);
+        }
+      }
+
+      // --- Botón "Hoy" dinámico: solo destacado si la fecha seleccionada ES hoy —
+      function updateTodayButtonHighlight() {
+        const todayBtn = document.getElementById('todayBtn');
+        const isTodaySelected = toKey(state.current) === state.todayKey;
+        todayBtn.classList.toggle('primary', isTodaySelected);
+      }
+
+      // Navegación semanal
+      function bindNav() {
+        document.getElementById('todayBtn').addEventListener('click', () => {
+          let d = new Date(); // mismo comportamiento: si finde -> lunes sig.
+          if (d.getDay() === 6) {
+            d.setDate(d.getDate() + 2);
+          }
+          if (d.getDay() === 0) {
+            d.setDate(d.getDate() + 1);
+          }
+          setDate(d);
+        });
+        document.getElementById('prevWeek').addEventListener('click', () => {
+          const d = new Date(state.current);
+          d.setDate(d.getDate() - 7);
+          setDate(d);
+        });
+        document.getElementById('nextWeek').addEventListener('click', () => {
+          const d = new Date(state.current);
+          d.setDate(d.getDate() + 7);
+          setDate(d);
+        });
+        document.getElementById('printBtn').addEventListener('click', () => window.print());
+        document.getElementById('darkModeBtn').addEventListener('click', toggleTheme);
+      }
+
+      // --- Modo oscuro con persistencia ---
+      function initTheme() {
+        let saved = localStorage.getItem('theme');
+        if (!saved) {
+          saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        applyTheme(saved);
+      }
+      function toggleTheme() {
+        const next = document.body.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+        document.getElementById('darkModeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
+      }
+      function applyTheme(mode) {
+        document.body.classList.toggle('dark', mode === 'dark');
+        document.getElementById('darkModeBtn').textContent = mode === 'dark' ? '☀️' : '🌙';
+      }
+
+      load();
+    </script>
+  </body>
+</html>
