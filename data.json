@@ -75,5 +75,102 @@
   "2025-09-30": {
     "almuerzo": ["Judías blancas estofadas", "Huevos revueltos con atún", "Ensalada mixta", "Fruta de temporada y pan"],
     "sugerencia_cena": "Verdura y pescado"
+  },
+
+  "2025-10-01": {
+    "almuerzo": ["Patatas con magro", "Bacalao a la riojana", "Ensalada de lechuga y zanahoria", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": ""
+  },
+  "2025-10-02": {
+    "almuerzo": ["Crema de coliflor", "Contramuslo al ajillo", "Patatas fritas", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Legumbre y huevo"
+  },
+  "2025-10-03": {
+    "almuerzo": ["Coditos a la napolitana", "Escalopines a la plancha", "Ensalada de lechuga y remolacha", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+
+  "2025-10-06": {
+    "almuerzo": ["Crema de puerros", "Bacalao con tomate", "Patatas fritas", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y pollo"
+  },
+  "2025-10-07": {
+    "almuerzo": ["Lentejas ECO con boniato y zanahorias", "Tortilla de patata", "Ensalada de lechuga y maíz", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-10-08": {
+    "almuerzo": ["Arroz con verduras", "Atún al horno", "Ensalada de lechuga y cebolla", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-10-09": {
+    "almuerzo": ["Judías verdes rehogadas", "Pollo al curry", "Puré de patata", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-10-10": {
+    "almuerzo": ["Sopa de cocido", "Cocido completo", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y huevo"
+  },
+
+  "2025-10-13": {
+    "almuerzo": ["NO LECTIVO"],
+    "sugerencia_cena": ""
+  },
+  "2025-10-14": {
+    "almuerzo": ["Espirales pomodoro", "Salmón a la plancha", "Patatas panadera", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-10-15": {
+    "almuerzo": ["Crema de calabaza", "Jamoncitos de pollo al limón", "Ensalada de lechuga y cebolla", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Legumbre y huevo"
+  },
+  "2025-10-16": {
+    "almuerzo": ["Arroz ECO tres delicias", "Merluza a la vasca", "Ensalada de lechuga y cebolla", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y pavo"
+  },
+  "2025-10-17": {
+    "almuerzo": ["Judías pintas estofadas", "Tortilla francesa de calabacín", "Ensalada mixta", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+
+  "2025-10-20": {
+    "almuerzo": ["Menestra rehogada", "Albóndigas con tomate", "Patatas dado", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-10-21": {
+    "almuerzo": ["Arroz con pollo y verduras", "Tortilla de atún", "Ensalada mixta", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-10-22": {
+    "almuerzo": ["Crema de calabacín", "Garbanzos salteados", "Ensalada de lechuga y tomate", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y pescado"
+  },
+  "2025-10-23": {
+    "almuerzo": ["Macarrones integrales amatriciana", "Supremas de merluza", "Ensalada verde", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pollo"
+  },
+  "2025-10-24": {
+    "almuerzo": ["Alubias ECO guisadas", "Filete de pollo a la plancha", "Ensalada de lechuga y zanahoria", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y huevo"
+  },
+
+  "2025-10-27": {
+    "almuerzo": ["Arroz integral con verduras", "Lomo a la plancha", "Ensalada mixta", "Yogur y pan integral"],
+    "sugerencia_cena": "Verdura y huevo"
+  },
+  "2025-10-28": {
+    "almuerzo": ["Patatas estofadas", "Merluza a la andaluza", "Ensalada de lechuga y zanahoria", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Verdura y pollo"
+  },
+  "2025-10-29": {
+    "almuerzo": ["Lentejas ECO con verduras", "Tortilla de queso", "Ensalada de lechuga y cebolla", "Fruta de temporada y pan integral"],
+    "sugerencia_cena": "Verdura y lomo"
+  },
+  "2025-10-30": {
+    "almuerzo": ["Crema de zanahorias", "Bacalao al horno", "Patatas panadera", "Fruta de temporada y pan"],
+    "sugerencia_cena": "Legumbre y huevo"
+  },
+  "2025-10-31": {
+    "almuerzo": ["Pasta terrorífica", "Dedos de Frankenstein", "Ensalada de lechuga y maíz", "Postre de Drácula"],
+    "sugerencia_cena": "Verdura y pescado"
   }
 }
