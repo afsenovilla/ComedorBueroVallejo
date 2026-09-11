@@ -3,399 +3,537 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fbfaf6" id="themeColor" />
     <title>Menú escolar</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
+      /* ---------------------------------------------------------------
+         Paletas. Solo cambian variables: la maqueta es idéntica en los
+         dos modos. Claro = "Cítrico", oscuro = "Tinta".
+         --------------------------------------------------------------- */
       :root {
-        /* Paleta clara */
-        --ink: #1a1f2c;
-        --ink-strong: #0f172a;
-        --muted: #6a738b;
-
-        --bg1: #f6f7ff;
-        --bg2: #fff4f7;
-        --bg3: #eefcf8;
-        --surface: #fafbff;
+        --paper: #fbfaf6;
         --card: #ffffff;
-        --stroke: #e6e8ef;
+        --rule: #e8e5dc;
+        --sep: #efece3;
 
-        --brand: #6c8cff;
-        --brand-dark: #4d6bff;
-        --accent: #ffcc6a;
-        --pink: #ff9ac2;
-        --mint: #7ed7c9;
+        --ink: #191b17;
+        --ink-soft: #4d5147;
+        --muted: #83887c;
+        --chev: #a9ae9f;
 
-        --radius: 16px;
-        --gap: 14px;
-        --shadow: 0 8px 28px rgba(27, 37, 89, 0.1);
+        --accent: #c04a0f; /* rellenos y cifras */
+        --accent-strong: #a83f09; /* texto pequeño y enlaces */
+        --on-accent: #ffffff;
+        --on-accent-soft: #fbd9c5;
+
+        --r-pill: 14px;
+        --r-card: 20px;
+        --r-list: 16px;
+
+        --display: 'Bricolage Grotesque', system-ui, sans-serif;
+        --body: 'Public Sans', system-ui, sans-serif;
       }
 
-      /* Modo oscuro: SOLO variables */
       body.dark {
-        --ink: #f3f4f6;
-        --ink-strong: #ffffff;
-        --muted: #b3b9c6;
+        --paper: #17191c;
+        --card: #212529;
+        --rule: #2e343a;
+        --sep: #2e343a;
 
-        --bg1: #0f172a;
-        --bg2: #111827;
-        --bg3: #0b1220;
-        --surface: #0b1220;
-        --card: #1f2430;
-        --stroke: #2c3140;
+        --ink: #eceae5;
+        --ink-soft: #b3b8bd;
+        --muted: #868d94;
+        --chev: #7b838b;
 
-        --brand: #7ea0ff;
-        --brand-dark: #5e82ff;
-        --shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        --accent: #dda13f;
+        --accent-strong: #e8b25a;
+        --on-accent: #17191c;
+        --on-accent-soft: #5c4514;
       }
 
       * {
         box-sizing: border-box;
       }
+
       body {
         margin: 0;
+        background: var(--paper);
         color: var(--ink);
-        font-family: 'Nunito', system-ui, sans-serif;
-        background: radial-gradient(28rem 28rem at -12% -10%, var(--bg1) 0%, transparent 60%), radial-gradient(26rem 26rem at 112% -8%, var(--bg2) 0%, transparent 55%), radial-gradient(26rem 26rem at -10% 115%, var(--bg3) 0%, transparent 60%), var(--surface);
-        transition: background 0.3s, color 0.3s;
+        font-family: var(--body);
+        -webkit-font-smoothing: antialiased;
+        transition: background 0.25s, color 0.25s;
       }
 
+      .wrap {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* ---------------- Cabecera ---------------- */
       header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        padding: 14px;
-        background: linear-gradient(135deg, var(--bg1) 0%, var(--card) 60%);
-        border-bottom: 1px solid var(--stroke);
+        padding: 22px 20px 16px;
       }
-
-      .header-top {
+      .eyebrow-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
+        gap: 12px;
+        min-height: 40px;
       }
-      .title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font: 600 22px 'Fredoka', sans-serif;
-        color: var(--ink-strong);
-        min-width: 0;
-      }
-      .title span:last-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .bubble {
-        display: inline-grid;
-        place-items: center;
-        flex-shrink: 0;
-        width: 38px;
-        height: 38px;
-        border-radius: 14px;
-        background: linear-gradient(180deg, var(--brand), var(--brand-dark));
-        color: #fff;
-        font-size: 20px;
-        box-shadow: var(--shadow);
-      }
-      .header-icons {
-        display: flex;
-        flex-shrink: 0;
-        gap: 4px;
-      }
-      .subtitle {
-        margin: 4px 0 0 48px;
-        font: 600 13px 'Nunito', sans-serif;
+      .eyebrow {
+        font: 700 11px var(--body);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
         color: var(--muted);
       }
+      .today-btn {
+        display: none;
+        align-items: center;
+        height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--accent-strong);
+        font: 600 13px var(--body);
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .today-btn.show {
+        display: inline-flex;
+      }
+      .today-btn:hover {
+        background: var(--sep);
+      }
 
-      .toolbar {
+      .date-row {
         display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .date-big {
+        font: 800 36px var(--display);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .date-month {
+        font: 400 15px var(--body);
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      /* ---------------- Tira de días ---------------- */
+      .days {
+        display: flex;
+        gap: 8px;
+        padding: 0 20px 18px;
+      }
+      .day-pill {
+        flex-grow: 1;
+        flex-basis: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 12px;
-        gap: 8px;
+        gap: 2px;
+        height: 58px;
+        padding: 0;
+        border: 1px solid var(--rule);
+        border-radius: var(--r-pill);
+        background: var(--card);
+        cursor: pointer;
+        font-family: var(--body);
+        transition: 0.15s;
+      }
+      .day-pill .dow {
+        font: 700 10px var(--body);
+        letter-spacing: 0.1em;
+        color: var(--muted);
+      }
+      .day-pill .num {
+        font: 600 18px var(--display);
+        color: var(--ink);
+      }
+      .day-pill:hover {
+        border-color: var(--chev);
+      }
+      .day-pill.empty {
+        opacity: 0.5;
+      }
+      .day-pill.is-today {
+        border-color: var(--accent);
+      }
+      .day-pill.is-today .num {
+        color: var(--accent);
+      }
+      .day-pill.selected {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .day-pill.selected .dow {
+        color: var(--on-accent-soft);
+      }
+      .day-pill.selected .num {
+        color: var(--on-accent);
       }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid var(--stroke);
+      /* ---------------- Bandeja del día ---------------- */
+      .tray {
+        margin: 0 20px;
         background: var(--card);
-        padding: 8px 14px;
-        border-radius: 999px;
-        font: 700 14px 'Nunito', sans-serif;
+        border: 1px solid var(--rule);
+        border-radius: var(--r-card);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .course {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .course-label {
+        font: 700 10px var(--body);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent-strong);
+      }
+      .course-name {
+        font: 500 20px var(--display);
+        line-height: 1.3;
+        text-wrap: pretty;
         color: var(--ink);
+      }
+      .course.aside .course-name {
+        font: 400 16px var(--body);
+        line-height: 1.35;
+        color: var(--ink-soft);
+      }
+      .sep {
+        height: 1px;
+        background: var(--sep);
+      }
+      .empty-note {
+        font: 400 16px var(--body);
+        color: var(--muted);
+      }
+
+      /* ---------------- Resto de la semana ---------------- */
+      .week-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 28px 20px 10px;
+      }
+      .week-title {
+        font: 700 11px var(--body);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .week-nav {
+        display: flex;
+        gap: 14px;
+        flex-shrink: 0;
+      }
+      .week-nav button {
+        border: none;
+        background: none;
+        padding: 4px 0;
+        font: 600 13px var(--body);
+        color: var(--accent-strong);
         cursor: pointer;
         white-space: nowrap;
-        transition: 0.2s;
       }
-      .btn.primary {
-        background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
-        color: #fff;
-        border-color: transparent;
+      .week-nav button:hover {
+        text-decoration: underline;
       }
-      .icon-btn {
-        background: none;
-        border: 1px solid transparent;
-        font-size: 20px;
-        cursor: pointer;
-        color: var(--muted);
-        padding: 6px;
-        border-radius: 8px;
-        line-height: 1;
-      }
-      .icon-btn:hover {
-        color: var(--brand-dark);
-        background: rgba(0, 0, 0, 0.04);
-      }
-      body.dark .icon-btn:hover {
-        background: rgba(255, 255, 255, 0.06);
+      .action span {
+        white-space: nowrap;
       }
 
-      @media (max-width: 480px) {
+      /* Móviles estrechos: el titular no debe partirse en dos líneas */
+      @media (max-width: 360px) {
+        header,
+        .days,
+        .week-head {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        .tray,
+        .week-list {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+        .date-big {
+          font-size: 30px;
+        }
+        .date-month {
+          font-size: 13px;
+        }
+        .week-title {
+          letter-spacing: 0.1em;
+        }
         .nav-label {
           display: none;
         }
-        .btn {
-          padding: 8px 12px;
+        .week-nav {
+          gap: 16px;
         }
-        .title {
-          font-size: 19px;
-          gap: 8px;
-        }
-        .bubble {
-          width: 34px;
-          height: 34px;
-          font-size: 17px;
-        }
-        .header-icons {
-          gap: 0;
-        }
-        .icon-btn {
+        .week-nav button {
           font-size: 18px;
-          padding: 5px;
+          padding: 10px 8px;
         }
       }
 
-      main {
-        max-width: 940px;
-        margin: 14px auto;
-        padding: 0 14px;
-      }
-      .card {
-        background: var(--card);
-        border: 1px solid var(--stroke);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        margin-bottom: 14px;
+      .week-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin: 0 20px;
+        background: var(--rule);
+        border-radius: var(--r-list);
         overflow: hidden;
       }
-      .bar {
-        height: 6px;
-        background: linear-gradient(90deg, var(--brand), var(--accent), var(--mint), var(--pink));
+      .week-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 44px;
+        padding: 14px 16px;
+        background: var(--card);
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-family: var(--body);
       }
-      .content {
-        padding: 16px;
+      .week-row:hover {
+        background: var(--sep);
       }
-
-      .day-label {
-        font: 600 18px 'Fredoka', sans-serif;
-        color: var(--ink-strong);
-        margin-bottom: 8px;
+      .week-row .rnum {
+        width: 28px;
+        flex-shrink: 0;
+        font: 600 18px var(--display);
+        color: var(--accent);
       }
-      h2 {
-        font: 600 16px 'Fredoka', sans-serif;
-        color: var(--ink-strong);
-        margin: 10px 0 6px;
+      .week-row .rtext {
+        flex-grow: 1;
+        font: 400 14px var(--body);
+        line-height: 1.4;
+        color: var(--ink-soft);
       }
-      .list {
-        margin: 0;
-        padding-left: 20px;
-        line-height: 1.5;
-      }
-      .empty {
+      .week-row.empty .rtext {
         color: var(--muted);
         font-style: italic;
       }
+      .week-row svg {
+        flex-shrink: 0;
+      }
 
-      .week {
-        display: grid;
+      /* ---------------- Acciones y pie ---------------- */
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 10px;
+        padding: 30px 20px 26px;
       }
-      @media (min-width: 560px) {
-        .week {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 900px) {
-        .week {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-      .day-card {
-        border: 1px solid var(--stroke);
-        border-radius: 14px;
-        padding: 12px;
-        background: var(--card);
-        cursor: pointer;
-        transition: 0.2s;
-        text-align: left;
-        color: var(--ink);
-      }
-      .day-card:hover {
-        box-shadow: var(--shadow);
-      }
-      .day-card.selected {
-        border-color: var(--brand);
-        box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.22), var(--shadow);
-      }
-      .day-card .top {
-        font: 700 14px 'Fredoka', sans-serif;
-        margin-bottom: 6px;
-        color: var(--ink-strong);
-      }
-      .peek {
-        margin: 0;
-        padding-left: 18px;
-        line-height: 1.4;
-        font-size: 13px;
+      .action {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        height: 44px;
+        padding: 0 12px;
+        border: none;
+        border-radius: 10px;
+        background: none;
+        font: 500 13px var(--body);
         color: var(--muted);
+        cursor: pointer;
       }
-      .peek li {
-        margin: 2px 0;
+      .action:hover {
+        background: var(--sep);
+        color: var(--ink-soft);
       }
 
       footer {
         text-align: center;
+        font: 400 12px var(--body);
+        line-height: 1.7;
         color: var(--muted);
-        font: 700 12px 'Nunito', sans-serif;
-        padding: 22px 14px;
-        line-height: 1.8;
+        padding: 0 20px 30px;
       }
       footer a {
-        color: var(--brand-dark);
+        color: var(--accent-strong);
         text-decoration: none;
       }
       footer a:hover {
         text-decoration: underline;
       }
 
+      /* ---------------- Impresión: el mes entero ---------------- */
+      #printable {
+        display: none;
+      }
+
       @media print {
-        header {
-          position: static;
-          border: none;
-          background: #fff;
-        }
+        body,
         body.dark {
           background: #fff;
+          color: #000;
         }
-        .icon-btn,
-        .btn {
-          display: none;
+        .wrap,
+        .no-print {
+          display: none !important;
         }
-        .card {
-          box-shadow: none;
+        #printable {
+          display: block;
+          font-family: var(--body);
+          color: #000;
+          padding: 0;
+        }
+        #printable h1 {
+          font: 800 22px var(--display);
+          margin: 0 0 2px;
+        }
+        #printable .psub {
+          font: 400 11px var(--body);
+          color: #444;
+          margin-bottom: 14px;
+        }
+        #printable .pweek {
+          font: 700 9px var(--body);
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #666;
+          margin: 12px 0 4px;
+          break-after: avoid;
+        }
+        #printable .pday {
+          display: flex;
+          gap: 10px;
+          padding: 5px 0;
+          border-bottom: 1px solid #ddd;
+          break-inside: avoid;
+        }
+        #printable .pdate {
+          width: 62px;
+          flex-shrink: 0;
+          font: 600 10px var(--body);
+          text-transform: uppercase;
+          color: #333;
+          padding-top: 2px;
+        }
+        #printable .pdish {
+          font: 400 11px var(--body);
+          line-height: 1.45;
         }
       }
     </style>
   </head>
+
   <body>
-    <header>
-      <div class="header-top">
-        <h1 class="title">
-          <span class="bubble">🍽️</span>
-          <span>Menú escolar <span id="yearLabel"></span></span>
-        </h1>
-        <div class="header-icons">
-          <button id="darkModeBtn" class="icon-btn" title="Modo noche">🌙</button>
-          <button id="printBtn" class="icon-btn" title="Imprimir">🖨️</button>
+    <div class="wrap">
+      <header>
+        <div class="eyebrow-row">
+          <div class="eyebrow">C.E.I.P. Buero Vallejo · Comedor</div>
+          <button id="todayBtn" class="today-btn" type="button">Ir a hoy</button>
+        </div>
+        <div class="date-row">
+          <div class="date-big" id="dateBig">—</div>
+          <div class="date-month" id="dateMonth"></div>
+        </div>
+      </header>
+
+      <div class="days" id="days"></div>
+
+      <section class="tray" id="tray"></section>
+
+      <div class="week-head">
+        <div class="week-title" id="weekTitle">Resto de la semana</div>
+        <div class="week-nav">
+          <button id="prevWeek" type="button" aria-label="Semana anterior">‹<span class="nav-label"> Anterior</span></button>
+          <button id="nextWeek" type="button" aria-label="Semana siguiente"><span class="nav-label">Siguiente </span>›</button>
         </div>
       </div>
-      <div class="subtitle">Menú Basal Primaria · C.E.I.P. Buero Vallejo</div>
-      <div class="toolbar">
-        <button id="prevWeek" class="btn" aria-label="Semana anterior">
-          <span aria-hidden="true">⟵</span><span class="nav-label">Semana anterior</span>
+
+      <div class="week-list" id="weekList"></div>
+
+      <div class="actions">
+        <button id="themeBtn" class="action" type="button">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+          <span id="themeLabel">Modo noche</span>
         </button>
-        <button id="todayBtn" class="btn">Hoy</button>
-        <button id="nextWeek" class="btn" aria-label="Semana siguiente">
-          <span class="nav-label">Semana siguiente</span><span aria-hidden="true">⟶</span>
+        <button id="printBtn" class="action" type="button">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Imprimir el mes</span>
         </button>
       </div>
-    </header>
 
-    <main>
-      <section class="card">
-        <div class="bar"></div>
-        <div class="content">
-          <div class="day-label" id="selectedDateLabel">—</div>
-          <h2>Comida</h2>
-          <div id="lunch"></div>
-        </div>
-      </section>
+      <footer>
+        Datos de <a href="https://t.me/colebuero" target="_blank" rel="noopener">t.me/colebuero</a> ·
+        <a href="mailto:afsenovilla@gmail.com">afsenovilla@gmail.com</a><br />
+        Funciona sin conexión · sin cookies
+      </footer>
+    </div>
 
-      <section class="card">
-        <div class="bar"></div>
-        <div class="content">
-          <h2>Semana a la vista</h2>
-          <div id="weekPreview" class="week" role="list"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Hecho con cariño · funciona offline · sin cookies<br />
-      Fuente de datos: <a href="https://t.me/colebuero" target="_blank" rel="noopener">t.me/colebuero</a>
-      · Contacto: <a href="mailto:afsenovilla@gmail.com">afsenovilla@gmail.com</a>
-    </footer>
+    <!-- Solo se ve al imprimir: el mes completo del día seleccionado -->
+    <div id="printable"></div>
 
     <script>
-      const fmtLong = (d) => d.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      const fmtShort = (d) => d.toLocaleDateString('es-ES', { weekday: 'short', day: '2-digit', month: '2-digit' });
-      const toKey = (d) => d.toISOString().slice(0, 10);
+      const DOW_SHORT = ['LUN', 'MAR', 'MIÉ', 'JUE', 'VIE'];
 
-      // state.selected  -> día que se muestra en la tarjeta grande de arriba (fijo en "hoy"
-      //                     salvo que el usuario pinche explícitamente otro día).
-      // state.viewWeek  -> lunes de la semana que se muestra en "Semana a la vista";
-      //                     lo mueven los botones de semana anterior/siguiente, sin tocar
-      //                     lo que hay arriba.
+      const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+      const toKey = (d) => d.toISOString().slice(0, 10);
+      const fmtMonth = (d) => d.toLocaleDateString('es-ES', { month: 'long' });
+      const fmtWeekday = (d) => d.toLocaleDateString('es-ES', { weekday: 'long' });
+
+      // state.selected -> día que se muestra en la bandeja de arriba (fijo en "hoy"
+      //                    salvo que el usuario pinche otro día).
+      // state.viewWeek -> lunes de la semana que se lista abajo; lo mueven los
+      //                    botones Anterior/Siguiente sin tocar la bandeja.
       const state = { selected: null, viewWeek: null, DATA: {}, todayKey: null };
 
       async function load() {
         const res = await fetch('data.json', { cache: 'no-store' });
         state.DATA = await res.json();
-        initHeader();
         initTheme();
         initToday();
         bindNav();
       }
 
-      function initHeader() {
-        const year = new Date().getFullYear();
-        document.getElementById('yearLabel').textContent = year;
-        document.title = `Menú escolar ${year} · Menú Basal Primaria`;
-
-        const isWeekend = [0, 6].includes(new Date().getDay());
-        document.getElementById('todayBtn').textContent = isWeekend ? 'Próximo Lunes' : 'Hoy';
-      }
-
-      // "Hoy efectivo": si se visita en fin de semana, adelanta al lunes siguiente
-      // (no hay menú los fines de semana). Normalizado a mediodía UTC para comparar claves.
-      function getEffectiveToday() {
-        let d = new Date();
-        if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-        if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-        return normalize(d);
-      }
+      /* ---------- fechas ---------- */
 
       function normalize(d) {
         return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 12, 0, 0));
+      }
+
+      // Si se visita en fin de semana, "hoy" pasa a ser el lunes siguiente.
+      function getEffectiveToday() {
+        const d = new Date();
+        if (d.getDay() === 6) d.setDate(d.getDate() + 2);
+        if (d.getDay() === 0) d.setDate(d.getDate() + 1);
+        return normalize(d);
       }
 
       function mondayOf(date) {
@@ -405,21 +543,32 @@
         return d;
       }
 
+      function addDays(date, n) {
+        const d = new Date(date);
+        d.setDate(d.getDate() + n);
+        return d;
+      }
+
       function initToday() {
         const eff = getEffectiveToday();
         state.todayKey = toKey(eff);
         state.selected = eff;
         state.viewWeek = mondayOf(eff);
+
+        const year = new Date().getFullYear();
+        document.title = `Menú escolar ${year} · Menú Basal Primaria`;
+
+        const weekend = [0, 6].includes(new Date().getDay());
+        document.getElementById('todayBtn').textContent = weekend ? 'Próximo lunes' : 'Ir a hoy';
+
         render();
       }
 
-      // Solo cambia el día mostrado arriba (al pinchar una tarjeta de la semana a la vista).
       function selectDate(d) {
         state.selected = normalize(d);
         render();
       }
 
-      // Botón "Hoy"/"Próximo Lunes": vuelve tanto la tarjeta grande como la semana a la vista.
       function goToday() {
         const eff = getEffectiveToday();
         state.selected = eff;
@@ -427,81 +576,193 @@
         render();
       }
 
-      // Botones de semana: solo mueven la semana a la vista, la tarjeta de arriba no cambia.
       function shiftWeek(deltaDays) {
-        const d = new Date(state.viewWeek);
-        d.setDate(d.getDate() + deltaDays);
-        state.viewWeek = d;
+        state.viewWeek = addDays(state.viewWeek, deltaDays);
         render();
       }
 
-      function render() {
-        const key = toKey(state.selected);
-        const entry = state.DATA[key];
-
-        document.getElementById('selectedDateLabel').textContent = fmtLong(state.selected);
-
-        const lunch = document.getElementById('lunch');
-        const asList = (arr) => "<ul class='list'>" + arr.map((i) => `<li>${i}</li>`).join('') + '</ul>';
-        const empty = (n) => `<div class="empty">Sin datos de ${n}.</div>`;
-        lunch.innerHTML = entry?.almuerzo?.length ? asList(entry.almuerzo) : empty('comida');
-
-        renderWeekPreview(state.viewWeek);
-        updateTodayButtonHighlight();
+      /* ---------- etiquetas de plato ----------
+         El array de data.json viene en orden. El último elemento es siempre la
+         línea de postre/pan/agua; los días de cocido o cous-cous completo traen
+         solo 3 elementos y se quedan sin "Acompaña". */
+      function labelsFor(n) {
+        if (n === 1) return ['Menú'];
+        const out = [];
+        for (let i = 0; i < n; i++) {
+          if (i === 0) out.push('Primero');
+          else if (i === n - 1) out.push('Y además');
+          else if (i === 1) out.push('Segundo');
+          else out.push('Acompaña');
+        }
+        return out;
       }
 
-      function renderWeekPreview(monday) {
-        const wrap = document.getElementById('weekPreview');
+      /* ---------- render ---------- */
+
+      function render() {
+        renderHeader();
+        renderDays();
+        renderTray();
+        renderWeekList();
+        renderPrintable();
+      }
+
+      function renderHeader() {
+        const d = state.selected;
+        document.getElementById('dateBig').textContent = `${cap(fmtWeekday(d))} ${d.getDate()}`;
+        document.getElementById('dateMonth').textContent = fmtMonth(d);
+
+        const onToday = toKey(state.selected) === state.todayKey && toKey(state.viewWeek) === toKey(mondayOf(getEffectiveToday()));
+        document.getElementById('todayBtn').classList.toggle('show', !onToday);
+      }
+
+      function renderDays() {
+        const wrap = document.getElementById('days');
         wrap.innerHTML = '';
 
         for (let i = 0; i < 5; i++) {
-          const d = new Date(monday);
-          d.setDate(monday.getDate() + i);
+          const d = addDays(state.viewWeek, i);
           const key = toKey(d);
-          const e = state.DATA[key] || {};
-          const card = document.createElement('button');
-          card.className = 'day-card';
-          if (key === toKey(state.selected)) card.classList.add('selected');
-          const list = e.almuerzo?.length ? "<ul class='peek'>" + e.almuerzo.map((x) => `<li>${x}</li>`).join('') + '</ul>' : "<div class='empty'>Sin datos</div>";
-          card.innerHTML = `<div class="top">${fmtShort(d)}</div>${list}`;
-          card.addEventListener('click', () => selectDate(d));
-          wrap.appendChild(card);
+          const has = !!state.DATA[key]?.almuerzo?.length;
+
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = 'day-pill';
+          if (!has) pill.classList.add('empty');
+          if (key === state.todayKey) pill.classList.add('is-today');
+          if (key === toKey(state.selected)) pill.classList.add('selected');
+          pill.innerHTML = `<span class="dow">${DOW_SHORT[i]}</span><span class="num">${d.getDate()}</span>`;
+          pill.setAttribute('aria-label', `${DOW_SHORT[i]} ${d.getDate()}`);
+          pill.addEventListener('click', () => selectDate(d));
+          wrap.appendChild(pill);
         }
       }
 
-      // --- Botón "Hoy" dinámico: solo destacado si lo que se ve arriba ES hoy —
-      function updateTodayButtonHighlight() {
-        const todayBtn = document.getElementById('todayBtn');
-        const isTodaySelected = toKey(state.selected) === state.todayKey;
-        todayBtn.classList.toggle('primary', isTodaySelected);
+      function renderTray() {
+        const tray = document.getElementById('tray');
+        const dishes = state.DATA[toKey(state.selected)]?.almuerzo || [];
+
+        if (!dishes.length) {
+          tray.innerHTML = '<div class="empty-note">Este día no tiene menú publicado.</div>';
+          return;
+        }
+
+        const labels = labelsFor(dishes.length);
+        tray.innerHTML = dishes
+          .map((dish, i) => {
+            const aside = i === dishes.length - 1 ? ' aside' : '';
+            const block = `<div class="course${aside}"><div class="course-label">${labels[i]}</div><div class="course-name">${dish}</div></div>`;
+            return i === 0 ? block : `<div class="sep"></div>${block}`;
+          })
+          .join('');
       }
 
-      // Navegación semanal
+      function renderWeekList() {
+        const list = document.getElementById('weekList');
+        const title = document.getElementById('weekTitle');
+        list.innerHTML = '';
+
+        const selKey = toKey(state.selected);
+        const sameWeek = toKey(mondayOf(state.selected)) === toKey(state.viewWeek);
+        const first = state.viewWeek;
+        const last = addDays(state.viewWeek, 4);
+        title.textContent = sameWeek
+          ? 'Resto de la semana'
+          : `Semana del ${first.getDate()} al ${last.getDate()} de ${fmtMonth(last)}`;
+
+        for (let i = 0; i < 5; i++) {
+          const d = addDays(state.viewWeek, i);
+          const key = toKey(d);
+          if (key === selKey) continue;
+
+          const dishes = state.DATA[key]?.almuerzo || [];
+          const row = document.createElement('button');
+          row.type = 'button';
+          row.className = 'week-row' + (dishes.length ? '' : ' empty');
+          // En el resumen se quitan los paréntesis de ingredientes: la lista de la
+          // semana se lee de un vistazo y el detalle completo está en la bandeja.
+          const short = (s) => s.replace(/\s*\([^)]*\)/g, '').trim();
+          const text = dishes.length ? dishes.slice(0, 2).map(short).join(' · ') : 'Sin menú publicado';
+          row.innerHTML =
+            `<span class="rnum">${d.getDate()}</span>` +
+            `<span class="rtext">${text}</span>` +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--chev)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>';
+          row.addEventListener('click', () => selectDate(d));
+          list.appendChild(row);
+        }
+      }
+
+      // Hoja para la nevera: todos los días publicados del mes que se está viendo.
+      function renderPrintable() {
+        const box = document.getElementById('printable');
+        const y = state.selected.getUTCFullYear();
+        const m = state.selected.getUTCMonth();
+
+        const keys = Object.keys(state.DATA)
+          .filter((k) => {
+            const d = new Date(k + 'T12:00:00Z');
+            return d.getUTCFullYear() === y && d.getUTCMonth() === m;
+          })
+          .sort();
+
+        const monthName = cap(fmtMonth(state.selected));
+        let html = `<h1>Menú del comedor · ${monthName} ${y}</h1>`;
+        html += '<div class="psub">Menú Basal Primaria · C.E.I.P. Buero Vallejo · datos de t.me/colebuero</div>';
+
+        // Agrupado por semana; el rango usa los días realmente publicados, así que
+        // una semana partida entre dos meses no dice "del 28 al 2".
+        const groups = [];
+        keys.forEach((k) => {
+          const mon = toKey(mondayOf(new Date(k + 'T12:00:00Z')));
+          const last = groups[groups.length - 1];
+          if (last && last.monday === mon) last.keys.push(k);
+          else groups.push({ monday: mon, keys: [k] });
+        });
+
+        groups.forEach((g) => {
+          const from = new Date(g.keys[0] + 'T12:00:00Z').getUTCDate();
+          const to = new Date(g.keys[g.keys.length - 1] + 'T12:00:00Z').getUTCDate();
+          html += `<div class="pweek">${from === to ? `Día ${from}` : `Semana del ${from} al ${to}`}</div>`;
+          g.keys.forEach((k) => {
+            const d = new Date(k + 'T12:00:00Z');
+            const dishes = state.DATA[k].almuerzo || [];
+            html += `<div class="pday"><div class="pdate">${DOW_SHORT[(d.getUTCDay() + 6) % 7] || ''} ${d.getUTCDate()}</div><div class="pdish">${dishes.join(' · ')}</div></div>`;
+          });
+        });
+
+        box.innerHTML = html;
+      }
+
+      /* ---------- navegación, tema ---------- */
+
       function bindNav() {
         document.getElementById('todayBtn').addEventListener('click', goToday);
         document.getElementById('prevWeek').addEventListener('click', () => shiftWeek(-7));
         document.getElementById('nextWeek').addEventListener('click', () => shiftWeek(7));
         document.getElementById('printBtn').addEventListener('click', () => window.print());
-        document.getElementById('darkModeBtn').addEventListener('click', toggleTheme);
+        document.getElementById('themeBtn').addEventListener('click', toggleTheme);
       }
 
-      // --- Modo oscuro con persistencia ---
       function initTheme() {
         let saved = localStorage.getItem('theme');
-        if (!saved) {
-          saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
+        if (!saved) saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         applyTheme(saved);
       }
+
       function toggleTheme() {
         const next = document.body.classList.contains('dark') ? 'light' : 'dark';
         applyTheme(next);
         localStorage.setItem('theme', next);
-        document.getElementById('darkModeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
       }
+
       function applyTheme(mode) {
-        document.body.classList.toggle('dark', mode === 'dark');
-        document.getElementById('darkModeBtn').textContent = mode === 'dark' ? '☀️' : '🌙';
+        const dark = mode === 'dark';
+        document.body.classList.toggle('dark', dark);
+        document.getElementById('themeLabel').textContent = dark ? 'Modo día' : 'Modo noche';
+        document.getElementById('themeIcon').innerHTML = dark
+          ? '<circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>'
+          : '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>';
+        document.getElementById('themeColor').setAttribute('content', dark ? '#17191c' : '#fbfaf6');
       }
 
       load();
