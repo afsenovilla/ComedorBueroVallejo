@@ -276,7 +276,15 @@
         text-align: center;
         color: var(--muted);
         font: 700 12px 'Nunito', sans-serif;
-        padding: 22px 0;
+        padding: 22px 14px;
+        line-height: 1.8;
+      }
+      footer a {
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
       }
 
       @media print {
@@ -341,14 +349,23 @@
       </section>
     </main>
 
-    <footer>Hecho con cariño · funciona offline · sin cookies</footer>
+    <footer>
+      Hecho con cariño · funciona offline · sin cookies<br />
+      Fuente de datos: <a href="https://t.me/colebuero" target="_blank" rel="noopener">t.me/colebuero</a>
+      · Contacto: <a href="mailto:afsenovilla@gmail.com">afsenovilla@gmail.com</a>
+    </footer>
 
     <script>
       const fmtLong = (d) => d.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
       const fmtShort = (d) => d.toLocaleDateString('es-ES', { weekday: 'short', day: '2-digit', month: '2-digit' });
       const toKey = (d) => d.toISOString().slice(0, 10);
 
-      const state = { current: null, DATA: {}, todayKey: null };
+      // state.selected  -> día que se muestra en la tarjeta grande de arriba (fijo en "hoy"
+      //                     salvo que el usuario pinche explícitamente otro día).
+      // state.viewWeek  -> lunes de la semana que se muestra en "Semana a la vista";
+      //                     lo mueven los botones de semana anterior/siguiente, sin tocar
+      //                     lo que hay arriba.
+      const state = { selected: null, viewWeek: null, DATA: {}, todayKey: null };
 
       async function load() {
         const res = await fetch('data.json', { cache: 'no-store' });
@@ -363,100 +380,107 @@
         const year = new Date().getFullYear();
         document.getElementById('yearLabel').textContent = year;
         document.title = `Menú escolar ${year} · Menú Basal Primaria`;
+
+        const isWeekend = [0, 6].includes(new Date().getDay());
+        document.getElementById('todayBtn').textContent = isWeekend ? 'Próximo Lunes' : 'Hoy';
       }
 
-      // Normaliza "hoy" a mediodía UTC para comparar con state.current
-      function getTodayNormalized() {
-        const now = new Date();
-        return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0));
+      // "Hoy efectivo": si se visita en fin de semana, adelanta al lunes siguiente
+      // (no hay menú los fines de semana). Normalizado a mediodía UTC para comparar claves.
+      function getEffectiveToday() {
+        let d = new Date();
+        if (d.getDay() === 6) d.setDate(d.getDate() + 2);
+        if (d.getDay() === 0) d.setDate(d.getDate() + 1);
+        return normalize(d);
+      }
+
+      function normalize(d) {
+        return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 12, 0, 0));
+      }
+
+      function mondayOf(date) {
+        const d = new Date(date);
+        const day = (d.getDay() + 6) % 7;
+        d.setDate(d.getDate() - day);
+        return d;
       }
 
       function initToday() {
-        let d = new Date();
-        // Si es sábado -> +2; domingo -> +1 (mostrar lunes siguiente como contenido inicial)
-        if (d.getDay() === 6) {
-          d.setDate(d.getDate() + 2);
-        }
-        if (d.getDay() === 0) {
-          d.setDate(d.getDate() + 1);
-        }
-        // Guarda la clave de "hoy" real para el resaltado del botón
-        state.todayKey = toKey(getTodayNormalized());
-        setDate(d);
+        const eff = getEffectiveToday();
+        state.todayKey = toKey(eff);
+        state.selected = eff;
+        state.viewWeek = mondayOf(eff);
+        render();
       }
 
-      function setDate(d) {
-        const nd = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), 12, 0, 0));
-        state.current = nd;
+      // Solo cambia el día mostrado arriba (al pinchar una tarjeta de la semana a la vista).
+      function selectDate(d) {
+        state.selected = normalize(d);
+        render();
+      }
+
+      // Botón "Hoy"/"Próximo Lunes": vuelve tanto la tarjeta grande como la semana a la vista.
+      function goToday() {
+        const eff = getEffectiveToday();
+        state.selected = eff;
+        state.viewWeek = mondayOf(eff);
+        render();
+      }
+
+      // Botones de semana: solo mueven la semana a la vista, la tarjeta de arriba no cambia.
+      function shiftWeek(deltaDays) {
+        const d = new Date(state.viewWeek);
+        d.setDate(d.getDate() + deltaDays);
+        state.viewWeek = d;
         render();
       }
 
       function render() {
-        const key = toKey(state.current);
+        const key = toKey(state.selected);
         const entry = state.DATA[key];
 
-        document.getElementById('selectedDateLabel').textContent = fmtLong(state.current);
+        document.getElementById('selectedDateLabel').textContent = fmtLong(state.selected);
 
         const lunch = document.getElementById('lunch');
         const asList = (arr) => "<ul class='list'>" + arr.map((i) => `<li>${i}</li>`).join('') + '</ul>';
         const empty = (n) => `<div class="empty">Sin datos de ${n}.</div>`;
         lunch.innerHTML = entry?.almuerzo?.length ? asList(entry.almuerzo) : empty('comida');
 
-        renderWeekPreview(state.current);
+        renderWeekPreview(state.viewWeek);
         updateTodayButtonHighlight();
       }
 
-      function renderWeekPreview(date) {
+      function renderWeekPreview(monday) {
         const wrap = document.getElementById('weekPreview');
         wrap.innerHTML = '';
-        const start = new Date(date);
-        const day = (start.getDay() + 6) % 7;
-        start.setDate(start.getDate() - day); // mover al lunes
 
         for (let i = 0; i < 5; i++) {
-          const d = new Date(start);
-          d.setDate(start.getDate() + i);
+          const d = new Date(monday);
+          d.setDate(monday.getDate() + i);
           const key = toKey(d);
           const e = state.DATA[key] || {};
           const card = document.createElement('button');
           card.className = 'day-card';
-          if (key === toKey(state.current)) card.classList.add('selected');
+          if (key === toKey(state.selected)) card.classList.add('selected');
           const list = e.almuerzo?.length ? "<ul class='peek'>" + e.almuerzo.map((x) => `<li>${x}</li>`).join('') + '</ul>' : "<div class='empty'>Sin datos</div>";
           card.innerHTML = `<div class="top">${fmtShort(d)}</div>${list}`;
-          card.addEventListener('click', () => setDate(d));
+          card.addEventListener('click', () => selectDate(d));
           wrap.appendChild(card);
         }
       }
 
-      // --- Botón "Hoy" dinámico: solo destacado si la fecha seleccionada ES hoy —
+      // --- Botón "Hoy" dinámico: solo destacado si lo que se ve arriba ES hoy —
       function updateTodayButtonHighlight() {
         const todayBtn = document.getElementById('todayBtn');
-        const isTodaySelected = toKey(state.current) === state.todayKey;
+        const isTodaySelected = toKey(state.selected) === state.todayKey;
         todayBtn.classList.toggle('primary', isTodaySelected);
       }
 
       // Navegación semanal
       function bindNav() {
-        document.getElementById('todayBtn').addEventListener('click', () => {
-          let d = new Date(); // mismo comportamiento: si finde -> lunes sig.
-          if (d.getDay() === 6) {
-            d.setDate(d.getDate() + 2);
-          }
-          if (d.getDay() === 0) {
-            d.setDate(d.getDate() + 1);
-          }
-          setDate(d);
-        });
-        document.getElementById('prevWeek').addEventListener('click', () => {
-          const d = new Date(state.current);
-          d.setDate(d.getDate() - 7);
-          setDate(d);
-        });
-        document.getElementById('nextWeek').addEventListener('click', () => {
-          const d = new Date(state.current);
-          d.setDate(d.getDate() + 7);
-          setDate(d);
-        });
+        document.getElementById('todayBtn').addEventListener('click', goToday);
+        document.getElementById('prevWeek').addEventListener('click', () => shiftWeek(-7));
+        document.getElementById('nextWeek').addEventListener('click', () => shiftWeek(7));
         document.getElementById('printBtn').addEventListener('click', () => window.print());
         document.getElementById('darkModeBtn').addEventListener('click', toggleTheme);
       }
