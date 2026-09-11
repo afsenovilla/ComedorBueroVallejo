@@ -71,16 +71,29 @@
         border-bottom: 1px solid var(--stroke);
       }
 
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
       .title {
         display: flex;
         align-items: center;
         gap: 10px;
         font: 600 22px 'Fredoka', sans-serif;
         color: var(--ink-strong);
+        min-width: 0;
+      }
+      .title span:last-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .bubble {
         display: inline-grid;
         place-items: center;
+        flex-shrink: 0;
         width: 38px;
         height: 38px;
         border-radius: 14px;
@@ -88,6 +101,11 @@
         color: #fff;
         font-size: 20px;
         box-shadow: var(--shadow);
+      }
+      .header-icons {
+        display: flex;
+        flex-shrink: 0;
+        gap: 4px;
       }
       .subtitle {
         margin: 4px 0 0 48px;
@@ -98,28 +116,23 @@
       .toolbar {
         display: flex;
         align-items: center;
-        margin-top: 10px;
+        justify-content: center;
+        margin-top: 12px;
         gap: 8px;
-      }
-      .toolbar-left {
-        flex: 1;
-        display: flex;
-        gap: 8px;
-      }
-      .toolbar-right {
-        margin-left: auto;
-        display: flex;
-        gap: 10px;
       }
 
       .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         border: 1px solid var(--stroke);
         background: var(--card);
-        padding: 8px 12px;
+        padding: 8px 14px;
         border-radius: 999px;
         font: 700 14px 'Nunito', sans-serif;
         color: var(--ink);
         cursor: pointer;
+        white-space: nowrap;
         transition: 0.2s;
       }
       .btn.primary {
@@ -135,6 +148,7 @@
         color: var(--muted);
         padding: 6px;
         border-radius: 8px;
+        line-height: 1;
       }
       .icon-btn:hover {
         color: var(--brand-dark);
@@ -142,6 +156,31 @@
       }
       body.dark .icon-btn:hover {
         background: rgba(255, 255, 255, 0.06);
+      }
+
+      @media (max-width: 480px) {
+        .nav-label {
+          display: none;
+        }
+        .btn {
+          padding: 8px 12px;
+        }
+        .title {
+          font-size: 19px;
+          gap: 8px;
+        }
+        .bubble {
+          width: 34px;
+          height: 34px;
+          font-size: 17px;
+        }
+        .header-icons {
+          gap: 0;
+        }
+        .icon-btn {
+          font-size: 18px;
+          padding: 5px;
+        }
       }
 
       main {
@@ -261,21 +300,25 @@
   </head>
   <body>
     <header>
-      <h1 class="title">
-        <span class="bubble">🍽️</span>
-        <span>Menú escolar <span id="yearLabel"></span></span>
-      </h1>
-      <div class="subtitle">Menú Basal Primaria · C.E.I.P. Buero Vallejo</div>
-      <div class="toolbar">
-        <div class="toolbar-left">
-          <button id="prevWeek" class="btn">⟵ Semana anterior</button>
-          <button id="todayBtn" class="btn">Hoy</button>
-          <button id="nextWeek" class="btn">Semana siguiente ⟶</button>
-        </div>
-        <div class="toolbar-right">
+      <div class="header-top">
+        <h1 class="title">
+          <span class="bubble">🍽️</span>
+          <span>Menú escolar <span id="yearLabel"></span></span>
+        </h1>
+        <div class="header-icons">
           <button id="darkModeBtn" class="icon-btn" title="Modo noche">🌙</button>
           <button id="printBtn" class="icon-btn" title="Imprimir">🖨️</button>
         </div>
+      </div>
+      <div class="subtitle">Menú Basal Primaria · C.E.I.P. Buero Vallejo</div>
+      <div class="toolbar">
+        <button id="prevWeek" class="btn" aria-label="Semana anterior">
+          <span aria-hidden="true">⟵</span><span class="nav-label">Semana anterior</span>
+        </button>
+        <button id="todayBtn" class="btn">Hoy</button>
+        <button id="nextWeek" class="btn" aria-label="Semana siguiente">
+          <span class="nav-label">Semana siguiente</span><span aria-hidden="true">⟶</span>
+        </button>
       </div>
     </header>
 
