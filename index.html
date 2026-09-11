@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Menú escolar · Septiembre 2025</title>
+    <title>Menú escolar</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
@@ -88,6 +88,11 @@
         color: #fff;
         font-size: 20px;
         box-shadow: var(--shadow);
+      }
+      .subtitle {
+        margin: 4px 0 0 48px;
+        font: 600 13px 'Nunito', sans-serif;
+        color: var(--muted);
       }
 
       .toolbar {
@@ -258,8 +263,9 @@
     <header>
       <h1 class="title">
         <span class="bubble">🍽️</span>
-        Menú escolar 2025
+        <span>Menú escolar <span id="yearLabel"></span></span>
       </h1>
+      <div class="subtitle">Menú Basal Primaria · C.E.I.P. Buero Vallejo</div>
       <div class="toolbar">
         <div class="toolbar-left">
           <button id="prevWeek" class="btn">⟵ Semana anterior</button>
@@ -278,16 +284,8 @@
         <div class="bar"></div>
         <div class="content">
           <div class="day-label" id="selectedDateLabel">—</div>
-          <div class="grid">
-            <div>
-              <h2>Comida</h2>
-              <div id="lunch"></div>
-            </div>
-            <div>
-              <h2>Sugerencia de cena</h2>
-              <div id="dinner"></div>
-            </div>
-          </div>
+          <h2>Comida</h2>
+          <div id="lunch"></div>
         </div>
       </section>
 
@@ -312,9 +310,16 @@
       async function load() {
         const res = await fetch('data.json', { cache: 'no-store' });
         state.DATA = await res.json();
+        initHeader();
         initTheme();
         initToday();
         bindNav();
+      }
+
+      function initHeader() {
+        const year = new Date().getFullYear();
+        document.getElementById('yearLabel').textContent = year;
+        document.title = `Menú escolar ${year} · Menú Basal Primaria`;
       }
 
       // Normaliza "hoy" a mediodía UTC para comparar con state.current
@@ -350,11 +355,9 @@
         document.getElementById('selectedDateLabel').textContent = fmtLong(state.current);
 
         const lunch = document.getElementById('lunch');
-        const dinner = document.getElementById('dinner');
         const asList = (arr) => "<ul class='list'>" + arr.map((i) => `<li>${i}</li>`).join('') + '</ul>';
         const empty = (n) => `<div class="empty">Sin datos de ${n}.</div>`;
         lunch.innerHTML = entry?.almuerzo?.length ? asList(entry.almuerzo) : empty('comida');
-        dinner.innerHTML = entry?.sugerencia_cena ? `<p>${entry.sugerencia_cena}</p>` : empty('sugerencia');
 
         renderWeekPreview(state.current);
         updateTodayButtonHighlight();

@@ -1,563 +1,59 @@
 {
-  "2025-09-01": {
-    "almuerzo": [
-      "VACACIONES DE VERANO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-09-02": {
-    "almuerzo": [
-      "VACACIONES DE VERANO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-09-03": {
-    "almuerzo": [
-      "VACACIONES DE VERANO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-09-04": {
-    "almuerzo": [
-      "VACACIONES DE VERANO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-09-05": {
-    "almuerzo": [
-      "VACACIONES DE VERANO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-09-08": {
-    "almuerzo": [
-      "Arroz con tomate",
-      "Hamburguesa de ternera a la plancha",
-      "Ensalada de lechuga y maíz",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-09-09": {
-    "almuerzo": [
-      "Crema de acelgas",
-      "Ventresca de merluza al horno",
-      "Patatas panadera",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Legumbre y pavo"
-  },
-  "2025-09-10": {
-    "almuerzo": [
-      "Lentejas ECO lionesas",
-      "Tortilla francesa",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-09-11": {
-    "almuerzo": [
-      "Menestra rehogada",
-      "Contramuslo de pollo a la plancha",
-      "Patatas dado",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Patata y huevo"
-  },
-  "2025-09-12": {
-    "almuerzo": [
-      "Macarrones integrales a la napolitana",
-      "Salmón a las finas hierbas",
-      "Ensalada mixta",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-09-15": {
-    "almuerzo": [
-      "Paella valenciana",
-      "Abadejo a la meuniere",
-      "Ensalada de lechuga y cebolla",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y huevo"
-  },
-  "2025-09-16": {
-    "almuerzo": [
-      "Crema de puerros",
-      "Escalopines de cerdo en salsa",
-      "Patatas al horno",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Patata y pescado"
-  },
-  "2025-09-17": {
-    "almuerzo": [
-      "Garbanzos ECO salteados",
-      "Tortilla francesa de calabacín",
-      "Ensalada de lechuga y remolacha",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pollo"
-  },
-  "2025-09-18": {
-    "almuerzo": [
-      "Coditos en salsa Alfredo",
-      "Palometa en salsa verde",
-      "Ensalada de lechuga y maíz",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y ternera"
-  },
-  "2025-09-19": {
-    "almuerzo": [
-      "Guisantes con cebolla",
-      "Jamoncitos de pollo asados",
-      "Ensalada mixta",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-09-22": {
-    "almuerzo": [
-      "Judías verdes a la portuguesa",
-      "Albóndigas en salsa",
-      "Patatas fritas",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-09-23": {
-    "almuerzo": [
-      "Arroz al horno",
-      "Tortilla francesa con salsa de tomate",
-      "Ensalada de lechuga y remolacha",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pollo"
-  },
-  "2025-09-24": {
-    "almuerzo": [
-      "Crema de calabacín",
-      "Lentejas con calabaza",
-      "Ensalada de lechuga y maíz",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-09-25": {
-    "almuerzo": [
-      "Espirales con verduras",
-      "Bonito encebollado",
-      "Ensalada verde",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-09-26": {
-    "almuerzo": [
-      "Judías pintas ECO estofadas",
-      "Pollo al chilindrón",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y huevo"
-  },
-  "2025-09-29": {
-    "almuerzo": [
-      "Arroz integral a la milanesa",
-      "Merluza al limón",
-      "Ensalada de lechuga y tomate",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-09-30": {
-    "almuerzo": [
-      "Judías blancas estofadas",
-      "Huevos revueltos con atún",
-      "Ensalada mixta",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-01": {
-    "almuerzo": [
-      "Patatas con magro",
-      "Bacalao a la riojana",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-10-02": {
-    "almuerzo": [
-      "Crema de coliflor",
-      "Contramuslo al ajillo",
-      "Patatas fritas",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Legumbre y huevo"
-  },
-  "2025-10-03": {
-    "almuerzo": [
-      "Coditos a la napolitana",
-      "Escalopines a la plancha",
-      "Ensalada de lechuga y remolacha",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-06": {
-    "almuerzo": [
-      "Crema de puerros",
-      "Bacalao con tomate",
-      "Patatas fritas",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pollo"
-  },
-  "2025-10-07": {
-    "almuerzo": [
-      "Lentejas ECO con boniato y zanahorias",
-      "Tortilla de patata",
-      "Ensalada de lechuga y maíz",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-08": {
-    "almuerzo": [
-      "Arroz con verduras",
-      "Atún al horno",
-      "Ensalada de lechuga y cebolla",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-10-09": {
-    "almuerzo": [
-      "Judías verdes rehogadas",
-      "Pollo al curry",
-      "Puré de patata",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-10": {
-    "almuerzo": [
-      "Sopa de cocido",
-      "Cocido completo",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y huevo"
-  },
-  "2025-10-13": {
-    "almuerzo": [
-      "NO LECTIVO"
-    ],
-    "sugerencia_cena": ""
-  },
-  "2025-10-14": {
-    "almuerzo": [
-      "Espirales pomodoro",
-      "Salmón a la plancha",
-      "Patatas panadera",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-10-15": {
-    "almuerzo": [
-      "Crema de calabaza",
-      "Jamoncitos de pollo al limón",
-      "Ensalada de lechuga y cebolla",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Legumbre y huevo"
-  },
-  "2025-10-16": {
-    "almuerzo": [
-      "Arroz ECO tres delicias",
-      "Merluza a la vasca",
-      "Ensalada de lechuga y cebolla",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pavo"
-  },
-  "2025-10-17": {
-    "almuerzo": [
-      "Judías pintas estofadas",
-      "Tortilla francesa de calabacín",
-      "Ensalada mixta",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-20": {
-    "almuerzo": [
-      "Menestra rehogada",
-      "Albóndigas con tomate",
-      "Patatas dado",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-21": {
-    "almuerzo": [
-      "Arroz con pollo y verduras",
-      "Tortilla de atún",
-      "Ensalada mixta",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-10-22": {
-    "almuerzo": [
-      "Crema de calabacín",
-      "Garbanzos salteados",
-      "Ensalada de lechuga y tomate",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2025-10-23": {
-    "almuerzo": [
-      "Macarrones integrales amatriciana",
-      "Supremas de merluza",
-      "Ensalada verde",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pollo"
-  },
-  "2025-10-24": {
-    "almuerzo": [
-      "Alubias ECO guisadas",
-      "Filete de pollo a la plancha",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y huevo"
-  },
-  "2025-10-27": {
-    "almuerzo": [
-      "Arroz integral con verduras",
-      "Lomo a la plancha",
-      "Ensalada mixta",
-      "Yogur y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y huevo"
-  },
-  "2025-10-28": {
-    "almuerzo": [
-      "Patatas estofadas",
-      "Merluza a la andaluza",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Verdura y pollo"
-  },
-  "2025-10-29": {
-    "almuerzo": [
-      "Lentejas ECO con verduras",
-      "Tortilla de queso",
-      "Ensalada de lechuga y cebolla",
-      "Fruta de temporada y pan integral"
-    ],
-    "sugerencia_cena": "Verdura y lomo"
-  },
-  "2025-10-30": {
-    "almuerzo": [
-      "Crema de zanahorias",
-      "Bacalao al horno",
-      "Patatas panadera",
-      "Fruta de temporada y pan"
-    ],
-    "sugerencia_cena": "Legumbre y huevo"
-  },
-  "2025-10-31": {
-    "almuerzo": [
-      "Pasta terrorífica",
-      "Dedos de Frankenstein",
-      "Ensalada de lechuga y maíz",
-      "Postre de Drácula"
-    ],
-    "sugerencia_cena": "Verdura y pescado"
-  },
-  "2026-09-01": {
-    "almuerzo": [
-      "Lentejas con calabaza",
-      "Tortilla francesa de calabacín",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada, pan integral y agua"
-    ]
-  },
-  "2026-09-02": {
-    "almuerzo": [
-      "Coliflor rehogada",
-      "Ragout de pollo",
-      "Cous-cous",
-      "Fruta de temporada, pan y agua"
-    ]
-  },
-  "2026-09-03": {
-    "almuerzo": [
-      "Crema de verdura (calabacín, patata, zanahoria y puerro)",
-      "Albóndigas al horno con tomate natural",
-      "Patatas asadas",
-      "Fruta de temporada, pan y agua"
-    ]
-  },
-  "2026-09-04": {
-    "almuerzo": [
-      "Arroz integral con tomate",
-      "Tilapia guisada con salsa de limón",
-      "Ensalada de lechuga y maíz",
-      "Yogur natural sin azúcar, pan integral y agua"
-    ]
-  },
   "2026-09-07": {
-    "almuerzo": [
-      "Judías verdes rehogadas",
-      "Hamburguesa de soja con tomate",
-      "Patatas panadera",
-      "Yogur natural sin azúcar, pan y agua"
-    ]
+    "almuerzo": ["Crema de verdura (calabacín, patata, zanahoria y puerro)", "Albóndigas al horno con tomate natural", "Patatas asadas", "Fruta de temporada, pan y agua"]
   },
   "2026-09-08": {
-    "almuerzo": [
-      "Espirales integrales a la carbonara",
-      "Salmón a la naranja",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Lentejas con calabaza", "Tortilla francesa de calabacín", "Ensalada de lechuga y zanahoria", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-09": {
-    "almuerzo": [
-      "Crema de calabacín",
-      "Jamoncitos de pollo asados al ajillo",
-      "Verduras asadas con orégano (zanahoria, boniato, calabacín)",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Coliflor rehogada", "Ragout de pollo", "Cous-cous", "Fruta de temporada, pan y agua"]
   },
   "2026-09-10": {
-    "almuerzo": [
-      "Sopa de ave con fideo integral",
-      "Garbanzos con sofrito de puerro, zanahoria y tomate",
-      "Ensalada de lechuga, maíz y aceitunas",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Arroz integral con tomate", "Tilapia guisada con salsa de limón", "Ensalada de lechuga y maíz", "Yogur natural sin azúcar, pan integral y agua"]
   },
   "2026-09-11": {
-    "almuerzo": [
-      "Calabaza gratinada",
-      "Arroz al horno (con garbanzo, patata, magro de cerdo)",
-      "Ensalada de lechuga y cebolla",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Sopa de ave con fideo integral", "Garbanzos con sofrito de puerro, zanahoria y tomate", "Ensalada de lechuga, maíz y aceitunas", "Fruta de temporada, pan y agua"]
   },
+
   "2026-09-14": {
-    "almuerzo": [
-      "Brócoli rehogado",
-      "Magro guisado a la jardinera",
-      "Patatas asadas",
-      "Yogur natural sin azúcar, pan y agua"
-    ]
+    "almuerzo": ["Judías verdes rehogadas", "Hamburguesa de soja con tomate", "Patatas panadera", "Yogur natural sin azúcar, pan y agua"]
   },
   "2026-09-15": {
-    "almuerzo": [
-      "Macarrones integrales amatriciana",
-      "Bonito a la plancha encebollado",
-      "Ensalada de lechuga y tomate",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Espirales integrales a la carbonara", "Salmón a la naranja", "Ensalada de lechuga y zanahoria", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-16": {
-    "almuerzo": [
-      "Patatas guisadas con pollo",
-      "Cous Cous completo (cuscús, garbanzos y verduras)",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Crema de calabacín", "Jamoncitos de pollo asados al ajillo", "Verduras asadas con orégano (zanahoria, boniato, calabacín)", "Fruta de temporada, pan y agua"]
   },
   "2026-09-17": {
-    "almuerzo": [
-      "Judías pintas estofadas",
-      "Tortilla de patatas",
-      "Ensalada de tomate y maíz",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Calabaza gratinada", "Arroz al horno (con garbanzo, patata, magro de cerdo)", "Ensalada de lechuga y cebolla", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-18": {
-    "almuerzo": [
-      "Judías blancas ECO guisadas",
-      "Revuelto de jamón y queso",
-      "Ensalada de lechuga, tomate y remolacha",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Judías pintas estofadas", "Tortilla de patatas", "Ensalada de tomate y maíz", "Fruta de temporada, pan y agua"]
   },
+
   "2026-09-21": {
-    "almuerzo": [
-      "Arroz con tomate",
-      "Cinta de lomo a la plancha",
-      "Ensalada de lechuga, tomate y maíz",
-      "Yogur natural sin azúcar, pan y agua"
-    ]
+    "almuerzo": ["Brócoli rehogado", "Magro guisado a la jardinera", "Patatas asadas", "Yogur natural sin azúcar, pan y agua"]
   },
   "2026-09-22": {
-    "almuerzo": [
-      "Judías verdes rehogadas con patatas",
-      "Abadejo enharinado frito al estilo andaluz",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Macarrones integrales amatriciana", "Bonito a la plancha encebollado", "Ensalada de lechuga y tomate", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-23": {
-    "almuerzo": [
-      "Revuelto de patatas y calabacín",
-      "Lentejas ECO con verduras",
-      "Ensalada de lechuga y tomate",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Patatas guisadas con pollo", "Cous Cous completo (cuscús, garbanzos y verduras)", "Fruta de temporada, pan y agua"]
   },
   "2026-09-24": {
-    "almuerzo": [
-      "Arroz ECO tres delicias (jamón, huevo, maíz)",
-      "Merluza rebozada",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Judías blancas ECO guisadas", "Revuelto de jamón y queso", "Ensalada de lechuga, tomate y remolacha", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-25": {
-    "almuerzo": [
-      "Arroz integral con tomate",
-      "Tilapia guisada con salsa de limón",
-      "Ensalada de lechuga y maíz",
-      "Yogur natural sin azúcar, pan integral y agua"
-    ]
+    "almuerzo": ["Arroz ECO tres delicias (jamón, huevo, maíz)", "Merluza rebozada", "Ensalada de lechuga y zanahoria", "Fruta de temporada, pan y agua"]
   },
+
   "2026-09-28": {
-    "almuerzo": [
-      "Lentejas con calabaza",
-      "Tortilla francesa de calabacín",
-      "Ensalada de lechuga y zanahoria",
-      "Fruta de temporada, pan integral y agua"
-    ]
+    "almuerzo": ["Arroz con tomate", "Cinta de lomo a la plancha", "Ensalada de lechuga, tomate y maíz", "Yogur natural sin azúcar, pan y agua"]
   },
   "2026-09-29": {
-    "almuerzo": [
-      "Coliflor rehogada",
-      "Ragout de pollo",
-      "Cous-cous",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Judías verdes rehogadas con patatas", "Abadejo enharinado frito al estilo andaluz", "Ensalada de lechuga y zanahoria", "Fruta de temporada, pan integral y agua"]
   },
   "2026-09-30": {
-    "almuerzo": [
-      "Crema de verdura (calabacín, patata, zanahoria y puerro)",
-      "Albóndigas al horno con tomate natural",
-      "Patatas asadas",
-      "Fruta de temporada, pan y agua"
-    ]
+    "almuerzo": ["Revuelto de patatas y calabacín", "Lentejas ECO con verduras", "Ensalada de lechuga y tomate", "Fruta de temporada, pan y agua"]
   }
 }
